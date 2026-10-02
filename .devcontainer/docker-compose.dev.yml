@@ -1,0 +1,18 @@
+# Sobreposição usada só pelo Dev Container (Codespaces).
+# Caminhos relativos resolvem a partir da raiz do repositório (diretório do primeiro compose).
+services:
+  workspace:
+    image: mcr.microsoft.com/devcontainers/java:1-21-bookworm
+    command: sleep infinity
+    volumes:
+      - .:/workspace:cached
+    environment:
+      DB_HOST: db
+      DB_PORT: "5432"
+      DB_NAME: ${DB_NAME:-acampamento}
+      DB_USER: ${DB_USER:-acampamento}
+      DB_PASSWORD: ${DB_PASSWORD:-acampamento}
+      CORS_ALLOWED_ORIGINS: "*"
+    depends_on:
+      db:
+        condition: service_healthy
