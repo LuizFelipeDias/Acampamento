@@ -1,0 +1,76 @@
+.app {
+  display: grid;
+  grid-template-columns: var(--sidebar-largura) 1fr;
+  min-height: 100vh;
+  /* A coluna da barra fica azul até o fim da página, mesmo em telas longas. */
+  background: linear-gradient(to right, var(--azul) var(--sidebar-largura), var(--fundo) var(--sidebar-largura));
+}
+
+.sidebar {
+  background: var(--azul);
+  color: #fff;
+  padding: 56px 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.marca {
+  font-family: var(--fonte-nav);
+  font-size: 14px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  padding: 0 40px 40px;
+}
+
+.nav { display: flex; flex-direction: column; gap: 12px; }
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 40px;
+  color: #fff;
+  text-decoration: none;
+  font-family: var(--fonte-nav);
+  font-size: 30px;
+  letter-spacing: 0.02em;
+  border-left: 5px solid transparent;
+  opacity: 0.8;
+  transition: opacity 0.15s, background 0.15s;
+}
+
+.link:hover { opacity: 1; background: rgba(255, 255, 255, 0.06); }
+
+.ativo { opacity: 1; border-left-color: #fff; background: rgba(255, 255, 255, 0.1); }
+
+.conteudo {
+  position: relative;
+  padding: 72px clamp(24px, 6vw, 96px);
+  min-width: 0;
+}
+
+/* Sombra suave azulada que separa a barra do conteúdo, como no design. */
+.conteudo::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 120px;
+  background: linear-gradient(to right, var(--azul-claro), transparent);
+  pointer-events: none;
+}
+
+.pagina { position: relative; max-width: 1100px; }
+
+@media (max-width: 860px) {
+  .app { grid-template-columns: 1fr; grid-template-rows: auto 1fr; background: var(--fundo); }
+  .sidebar { position: static; height: auto; padding: 16px 0; }
+  .marca { display: none; }
+  .nav { flex-direction: row; justify-content: space-around; gap: 0; overflow-x: auto; }
+  .link { font-size: 18px; gap: 8px; padding: 10px 12px; white-space: nowrap; border-left: 0; border-bottom: 4px solid transparent; }
+  .link svg { width: 24px; height: 24px; }
+  .ativo { border-bottom-color: #fff; }
+  .conteudo { padding: 32px 16px; }
+  .conteudo::before { display: none; }
+}

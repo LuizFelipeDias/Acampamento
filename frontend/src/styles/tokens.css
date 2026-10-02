@@ -1,0 +1,27 @@
+/* Tokens extraídos do design-base (tela Cantina com barra lateral). */
+:root {
+  --azul: #3546c3;
+  --azul-escuro: #2a389e;
+  --azul-claro: #e9ebfa;
+  --tinta: #111111;
+  --texto: #1d1d1f;
+  --texto-suave: #6b6b76;
+  --borda-suave: #e3e3ea;
+  --fundo: #ffffff;
+  --fundo-sutil: #f7f7fa;
+
+  --ok: #1a7f37;
+  --ok-fundo: #e3f6e8;
+  --erro: #c62828;
+  --erro-fundo: #fdecec;
+  --aviso-fundo: #fff4d6;
+  --aviso: #8a5a00;
+
+  --fonte-titulo: 'Inter', system-ui, sans-serif;
+  --fonte-nav: 'Oswald', 'Arial Narrow', sans-serif;
+  --fonte-texto: 'Inter', system-ui, sans-serif;
+
+  --raio: 6px;
+  --borda-forte: 3px solid var(--tinta);
+  --sidebar-largura: 280px;
+}

@@ -1,0 +1,10 @@
+.form {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) 1fr 1fr auto;
+  gap: 16px 20px;
+  align-items: end;
+  margin-bottom: 32px;
+}
+.acoes { display: flex; gap: 8px; }
+.inativo { color: var(--texto-suave); text-decoration: line-through; }
+@media (max-width: 860px) { .form { grid-template-columns: 1fr 1fr; } }
