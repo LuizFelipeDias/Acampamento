@@ -37,9 +37,10 @@ public class Produto {
     }
 
     public void baixarEstoque(int quantidade) {
+        if (!ativo) throw new RegraNegocioException("Produto inativo: " + nome);
         if (quantidade <= 0) throw new IllegalArgumentException("Quantidade deve ser positiva");
         if (quantidade > estoque) {
-            throw new IllegalStateException("Estoque insuficiente para " + nome);
+            throw new RegraNegocioException("Estoque insuficiente para " + nome + " (disponível: " + estoque + ")");
         }
         estoque -= quantidade;
     }

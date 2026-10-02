@@ -1,8 +1,14 @@
 {
   "name": "Acampamento Gap",
-  "dockerComposeFile": ["../docker-compose.yml", "docker-compose.dev.yml"],
+  "dockerComposeFile": [
+    "../docker-compose.yml",
+    "docker-compose.dev.yml"
+  ],
   "service": "workspace",
-  "runServices": ["db", "workspace"],
+  "runServices": [
+    "db",
+    "workspace"
+  ],
   "workspaceFolder": "/workspace",
   "shutdownAction": "stopCompose",
   "features": {
@@ -10,13 +16,26 @@
       "version": "none",
       "installMaven": "true"
     },
-    "ghcr.io/devcontainers/features/node:1": { "version": "20" }
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "20"
+    }
   },
-  "forwardPorts": [8080, 5173, "db:5432"],
+  "forwardPorts": [
+    8080,
+    5173,
+    "db:5432"
+  ],
   "portsAttributes": {
-    "8080": { "label": "API Spring Boot" },
-    "5173": { "label": "Frontend React", "onAutoForward": "openBrowser" },
-    "db:5432": { "label": "PostgreSQL" }
+    "8080": {
+      "label": "API Spring Boot"
+    },
+    "5173": {
+      "label": "Frontend React",
+      "onAutoForward": "openBrowser"
+    },
+    "db:5432": {
+      "label": "PostgreSQL"
+    }
   },
   "customizations": {
     "vscode": {
@@ -26,7 +45,8 @@
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
         "mtxr.sqltools",
-        "mtxr.sqltools-driver-pg"
+        "mtxr.sqltools-driver-pg",
+        "humao.rest-client"
       ]
     }
   }
