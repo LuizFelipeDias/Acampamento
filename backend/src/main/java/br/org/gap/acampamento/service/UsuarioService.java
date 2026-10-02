@@ -58,7 +58,10 @@ public class UsuarioService {
         u.setIdade(req.idade().shortValue());
         u.setTelefone(textoOuNulo(req.telefone()));
         u.setResponsaveis(textoOuNulo(req.responsaveis()));
+        u.setTelefoneResponsavel(textoOuNulo(req.telefoneResponsavel()));
         u.setFrequentaIgreja(req.frequentaIgreja());
+        // "Qual igreja" só faz sentido se frequenta.
+        u.setIgreja(req.frequentaIgreja() ? textoOuNulo(req.igreja()) : null);
         u.setFrequentaGap(req.frequentaGap());
         u.setRestricaoAlimentar(textoOuNulo(req.restricaoAlimentar()));
         u.setAlergia(textoOuNulo(req.alergia()));

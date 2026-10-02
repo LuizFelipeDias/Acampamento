@@ -9,7 +9,9 @@ public record UsuarioResponse(
         int idade,
         String telefone,
         String responsaveis,
+        String telefoneResponsavel,
         boolean frequentaIgreja,
+        String igreja,
         boolean frequentaGap,
         String restricaoAlimentar,
         String alergia,
@@ -19,7 +21,7 @@ public record UsuarioResponse(
     public static UsuarioResponse from(Usuario u) {
         return new UsuarioResponse(
                 u.getId(), u.getNome(), u.getIdade(), u.getTelefone(), u.getResponsaveis(),
-                u.isFrequentaIgreja(), u.isFrequentaGap(), u.getRestricaoAlimentar(),
+                u.getTelefoneResponsavel(), u.isFrequentaIgreja(), u.getIgreja(), u.isFrequentaGap(), u.getRestricaoAlimentar(),
                 u.getAlergia(), u.getMedicamentoContinuo(), u.getCriadoEm());
     }
 }

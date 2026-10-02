@@ -1,0 +1,35 @@
+.grade {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px 24px;
+}
+.nome { grid-column: span 6; }
+.idade { grid-column: span 2; }
+.telefone { grid-column: span 4; }
+.responsaveis { grid-column: span 7; }
+.telResponsavel { grid-column: span 5; }
+
+.secao {
+  grid-column: 1 / -1;
+  margin: 16px 0 0;
+  font-family: var(--fonte-nav);
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  color: var(--azul);
+  border-top: 2px solid var(--borda-suave);
+  padding-top: 20px;
+}
+
+.pergunta {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 24px;
+  align-items: end;
+}
+
+@media (max-width: 860px) {
+  .grade > * { grid-column: 1 / -1; }
+  .pergunta { grid-template-columns: 1fr; }
+}

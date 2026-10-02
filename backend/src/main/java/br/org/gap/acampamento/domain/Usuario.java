@@ -22,6 +22,12 @@ public class Usuario {
 
     private String responsaveis;
 
+    @Column(name = "telefone_responsavel", length = 20)
+    private String telefoneResponsavel;
+
+    @Column(length = 120)
+    private String igreja;
+
     @Column(name = "frequenta_igreja", nullable = false)
     private boolean frequentaIgreja;
 
@@ -62,6 +68,10 @@ public class Usuario {
     public void setTelefone(String telefone) { this.telefone = telefone; }
     public String getResponsaveis() { return responsaveis; }
     public void setResponsaveis(String responsaveis) { this.responsaveis = responsaveis; }
+    public String getTelefoneResponsavel() { return telefoneResponsavel; }
+    public void setTelefoneResponsavel(String v) { this.telefoneResponsavel = v; }
+    public String getIgreja() { return igreja; }
+    public void setIgreja(String igreja) { this.igreja = igreja; }
     public boolean isFrequentaIgreja() { return frequentaIgreja; }
     public void setFrequentaIgreja(boolean v) { this.frequentaIgreja = v; }
     public boolean isFrequentaGap() { return frequentaGap; }
