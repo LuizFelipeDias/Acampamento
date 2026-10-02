@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: acampamento-api
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:acampamento}
+    username: ${DB_USER:acampamento}
+    password: ${DB_PASSWORD:acampamento}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate          # schema é responsabilidade do Flyway
+    properties:
+      hibernate:
+        jdbc.time_zone: UTC
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+server:
+  port: ${SERVER_PORT:8080}
+
+app:
+  cors:
+    allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:5173}
