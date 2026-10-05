@@ -115,11 +115,11 @@ export function RegistroCheckin() {
 
           <h2 className={s.secao}>Igreja e Gap</h2>
           <div className={s.pergunta}>
-            <SimNao rotulo="Frequenta alguma igreja?" valor={form.frequentaIgreja} onChange={(v) => definir('frequentaIgreja', v)} />
-            {form.frequentaIgreja && <Campo rotulo="Qual?" {...texto('igreja')} />}
+            <SimNao rotulo="Frequenta o Gap?" valor={form.frequentaGap} onChange={(v) => definir('frequentaGap', v)} />
           </div>
           <div className={s.pergunta}>
-            <SimNao rotulo="Frequenta o Gap?" valor={form.frequentaGap} onChange={(v) => definir('frequentaGap', v)} />
+            <SimNao rotulo="Frequenta alguma igreja?" valor={form.frequentaIgreja} onChange={(v) => definir('frequentaIgreja', v)} />
+            {form.frequentaIgreja && <Campo rotulo="Qual?" {...texto('igreja')} />}
           </div>
 
           <h2 className={s.secao}>Saúde</h2>
@@ -136,8 +136,7 @@ export function RegistroCheckin() {
             {form.usaMedicamento && <Campo rotulo="Qual?" {...texto('medicamentoContinuo')} />}
           </div>
           <div className={s.pergunta}>
-            <SimNao rotulo="Condição de saúde que a liderança precisa conhecer?" valor={form.temCondicao}
-                    onChange={(v) => definir('temCondicao', v)} />
+            <SimNao rotulo="Condição de saúde relevante?" valor={form.temCondicao} onChange={(v) => definir('temCondicao', v)} />
             {form.temCondicao && <Campo rotulo="Qual?" {...texto('condicaoSaude')} />}
           </div>
         </div>

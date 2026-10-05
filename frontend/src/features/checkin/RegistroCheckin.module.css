@@ -21,11 +21,12 @@
   padding-top: 14px;
 }
 
+/* Perguntas em duas colunas: cada uma ocupa metade da linha, com o "Qual?" ao lado do Sim/Não. */
 .pergunta {
-  grid-column: 1 / -1;
+  grid-column: span 6;
   display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 16px;
+  grid-template-columns: 210px 1fr;
+  gap: 12px;
   align-items: end;
 }
 

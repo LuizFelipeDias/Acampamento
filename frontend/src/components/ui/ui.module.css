@@ -161,3 +161,29 @@
 .carregando { color: var(--texto-suave); padding: 16px 0; }
 .busca { max-width: 360px; margin-bottom: 16px; }
 .semQuebra { white-space: nowrap; }
+
+/* ---------- Paginação ---------- */
+.paginacao {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--texto-suave);
+  flex-wrap: wrap;
+}
+.paginacaoBotoes { display: flex; align-items: center; gap: 10px; }
+.paginacaoBotoes button {
+  height: 32px;
+  padding: 0 12px;
+  border: 1px solid var(--borda-suave);
+  border-radius: var(--raio);
+  background: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--texto);
+  cursor: pointer;
+}
+.paginacaoBotoes button:hover:not(:disabled) { border-color: var(--azul); color: var(--azul); }
+.paginacaoBotoes button:disabled { opacity: 0.45; cursor: not-allowed; }
