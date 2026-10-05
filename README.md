@@ -27,7 +27,6 @@ frontend/src/
   components/           layout e componentes de interface reutilizáveis
   features/             telas por área (home, checkin, cantina)
   hooks/  utils/  styles/
-docs/api.http           requisições de exemplo
 dados-privados/         dados pessoais (fora do Git)
 ```
 
@@ -43,7 +42,7 @@ cd frontend && npm ci && npm run dev
 
 ## Rodar localmente
 
-Instale JDK 21, Maven, Node 22 e Docker. Copie `.env.example` para `.env`, suba o banco com
+Instale JDK 21, Maven, Node 22 e Docker. Suba o banco com
 `docker compose up -d db` e rode os dois comandos acima. Nenhum código muda: a conexão vem das
 variáveis `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER` e `DB_PASSWORD`.
 
