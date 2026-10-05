@@ -1,10 +1,10 @@
 /* Etapas */
-.etapas { display: flex; gap: 8px; margin: 0 0 28px; padding: 0; list-style: none; flex-wrap: wrap; }
+.etapas { display: flex; gap: 8px; margin: 0 0 20px; padding: 0; list-style: none; flex-wrap: wrap; }
 .etapa {
   font-family: var(--fonte-nav);
-  font-size: 16px;
+  font-size: 13px;
   letter-spacing: 0.04em;
-  padding: 6px 14px;
+  padding: 4px 12px;
   border-radius: 999px;
   background: var(--fundo-sutil);
   color: var(--texto-suave);
@@ -13,15 +13,15 @@
 .etapaFeita { background: var(--azul-claro); color: var(--azul-escuro); }
 
 /* Etapa 1: identificação (design-base: campos empilhados, borda forte) */
-.identificacao { display: flex; flex-direction: column; gap: 20px; max-width: 420px; }
-.resultados { list-style: none; margin: 24px 0 0; padding: 0; display: flex; flex-direction: column; gap: 10px; max-width: 560px; }
+.identificacao { display: flex; flex-direction: column; gap: 14px; max-width: 360px; }
+.resultados { list-style: none; margin: 16px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; max-width: 480px; }
 .resultado {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  padding: 14px 18px;
+  padding: 10px 14px;
   background: #fff;
   border: 2px solid var(--borda-suave);
   border-radius: var(--raio);
@@ -29,8 +29,8 @@
   text-align: left;
 }
 .resultado:hover { border-color: var(--azul); background: var(--azul-claro); }
-.resultadoNome { font-weight: 700; font-size: 17px; }
-.resultadoInfo { color: var(--texto-suave); font-size: 14px; }
+.resultadoNome { font-weight: 700; font-size: 15px; }
+.resultadoInfo { color: var(--texto-suave); font-size: 13px; }
 
 /* Faixa com o participante escolhido */
 .participante {
@@ -38,34 +38,34 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 14px 20px;
+  padding: 10px 16px;
   border-radius: var(--raio);
   background: var(--azul-claro);
-  margin-bottom: 28px;
+  margin-bottom: 20px;
   flex-wrap: wrap;
 }
-.participanteNome { font-weight: 700; font-size: 18px; }
+.participanteNome { font-weight: 700; font-size: 15px; }
 .participanteNumero { color: var(--azul-escuro); font-weight: 600; margin-left: 8px; }
 
 /* Etapa 2: linhas de produto */
 .linha {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 140px 140px auto;
-  gap: 16px;
+  grid-template-columns: minmax(0, 1fr) 110px 110px auto;
+  gap: 12px;
   align-items: end;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
-.subtotal { height: 52px; display: flex; align-items: center; justify-content: flex-end; font-weight: 600; font-variant-numeric: tabular-nums; }
-.remover { height: 52px; }
+.subtotal { height: var(--altura-controle); display: flex; align-items: center; justify-content: flex-end; font-weight: 600; font-variant-numeric: tabular-nums; }
+.remover { height: var(--altura-controle); }
 .rodapeCarrinho { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-top: 12px; flex-wrap: wrap; }
-.total { font-size: 22px; }
-.total strong { font-size: 28px; font-variant-numeric: tabular-nums; margin-left: 8px; }
+.total { font-size: 16px; }
+.total strong { font-size: 20px; font-variant-numeric: tabular-nums; margin-left: 8px; }
 
 /* Etapa 3: pagamento (design: Nome + Total no topo, método/valor abaixo) */
 .gradePagamento {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 20px 24px;
+  gap: 14px 16px;
 }
 .pagNome { grid-column: span 4; }
 .pagTotal { grid-column: span 2; }
@@ -73,8 +73,8 @@
 .pagValor { grid-column: span 2; }
 .pagTroco { grid-column: span 2; }
 .pagConta { grid-column: span 2; }
-.resumo { margin: 28px 0 0; padding: 0; list-style: none; border-top: 2px solid var(--borda-suave); }
-.resumo li { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--borda-suave); font-variant-numeric: tabular-nums; }
+.resumo { margin: 20px 0 0; padding: 0; list-style: none; border-top: 2px solid var(--borda-suave); }
+.resumo li { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--borda-suave); font-variant-numeric: tabular-nums; }
 
 @media (max-width: 860px) {
   .linha { grid-template-columns: 1fr 1fr; }

@@ -6,7 +6,7 @@ import java.time.OffsetDateTime;
 public record UsuarioResponse(
         Long id,
         String nome,
-        int idade,
+        Integer idade,
         String telefone,
         String responsaveis,
         String telefoneResponsavel,
@@ -16,12 +16,13 @@ public record UsuarioResponse(
         String restricaoAlimentar,
         String alergia,
         String medicamentoContinuo,
+        String condicaoSaude,
         OffsetDateTime criadoEm) {
 
     public static UsuarioResponse from(Usuario u) {
         return new UsuarioResponse(
-                u.getId(), u.getNome(), u.getIdade(), u.getTelefone(), u.getResponsaveis(),
+                u.getId(), u.getNome(), u.getIdade() == null ? null : u.getIdade().intValue(), u.getTelefone(), u.getResponsaveis(),
                 u.getTelefoneResponsavel(), u.isFrequentaIgreja(), u.getIgreja(), u.isFrequentaGap(), u.getRestricaoAlimentar(),
-                u.getAlergia(), u.getMedicamentoContinuo(), u.getCriadoEm());
+                u.getAlergia(), u.getMedicamentoContinuo(), u.getCondicaoSaude(), u.getCriadoEm());
     }
 }

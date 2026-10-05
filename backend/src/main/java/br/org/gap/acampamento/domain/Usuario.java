@@ -14,7 +14,7 @@ public class Usuario {
     @Column(nullable = false, length = 150)
     private String nome;
 
-    @Column(nullable = false)
+    /** Null para líderes/adultos que não informam idade. */
     private Short idade;
 
     @Column(length = 20)
@@ -43,6 +43,9 @@ public class Usuario {
 
     @Column(name = "medicamento_continuo")
     private String medicamentoContinuo;
+
+    @Column(name = "condicao_saude")
+    private String condicaoSaude;
 
     @Column(name = "criado_em", nullable = false, updatable = false)
     private OffsetDateTime criadoEm;
@@ -82,5 +85,10 @@ public class Usuario {
     public void setAlergia(String alergia) { this.alergia = alergia; }
     public String getMedicamentoContinuo() { return medicamentoContinuo; }
     public void setMedicamentoContinuo(String v) { this.medicamentoContinuo = v; }
+    public String getCondicaoSaude() { return condicaoSaude; }
+    public void setCondicaoSaude(String v) { this.condicaoSaude = v; }
     public OffsetDateTime getCriadoEm() { return criadoEm; }
+
+    /** Permite preservar a data original da inscrição em importações. Só tem efeito antes de salvar. */
+    public void setCriadoEm(OffsetDateTime criadoEm) { this.criadoEm = criadoEm; }
 }

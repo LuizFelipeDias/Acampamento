@@ -1,7 +1,7 @@
 import type { SVGProps } from 'react';
 
 const base = (props: SVGProps<SVGSVGElement>) => ({
-  width: 40, height: 40, viewBox: '0 0 48 48', fill: 'none',
+  width: 22, height: 22, viewBox: '0 0 48 48', fill: 'none',
   stroke: 'currentColor', strokeWidth: 3, strokeLinejoin: 'round' as const,
   'aria-hidden': true, ...props,
 });

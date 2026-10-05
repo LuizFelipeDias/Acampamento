@@ -38,7 +38,7 @@ export function EtapaParticipante({ onEscolher }: { onEscolher: (u: Usuario) => 
                 <span>
                   <span className={s.resultadoNome}>{u.nome}</span>
                   <br />
-                  <span className={s.resultadoInfo}>{u.idade} anos{u.responsaveis ? ` · ${u.responsaveis}` : ''}</span>
+                  <span className={s.resultadoInfo}>{[u.idade !== null && `${u.idade} anos`, u.responsaveis].filter(Boolean).join(' · ')}</span>
                 </span>
                 <span className={s.resultadoInfo}>Nº {u.id}</span>
               </button>

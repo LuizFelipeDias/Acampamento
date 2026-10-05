@@ -20,12 +20,15 @@ interface Formulario {
   alergia: string;
   usaMedicamento: boolean;
   medicamentoContinuo: string;
+  temCondicao: boolean;
+  condicaoSaude: string;
 }
 
 const VAZIO: Formulario = {
   nome: '', idade: '', telefone: '', responsaveis: '', telefoneResponsavel: '',
   frequentaIgreja: false, igreja: '', temRestricao: false, restricaoAlimentar: '',
   frequentaGap: false, temAlergia: false, alergia: '', usaMedicamento: false, medicamentoContinuo: '',
+  temCondicao: false, condicaoSaude: '',
 };
 
 type Erros = Partial<Record<keyof Formulario, string>>;
@@ -33,11 +36,13 @@ type Erros = Partial<Record<keyof Formulario, string>>;
 function validar(f: Formulario): Erros {
   const erros: Erros = {};
   if (!f.nome.trim()) erros.nome = 'Informe o nome.';
+  // Idade é opcional: líderes e adultos se inscrevem sem ela.
   const idade = Number(f.idade);
-  if (f.idade === '' || !Number.isInteger(idade) || idade < 0 || idade > 120) erros.idade = 'Idade inválida.';
+  if (f.idade !== '' && (!Number.isInteger(idade) || idade < 0 || idade > 120)) erros.idade = 'Idade inválida.';
   if (f.temRestricao && !f.restricaoAlimentar.trim()) erros.restricaoAlimentar = 'Descreva a restrição.';
   if (f.temAlergia && !f.alergia.trim()) erros.alergia = 'Descreva a alergia.';
   if (f.usaMedicamento && !f.medicamentoContinuo.trim()) erros.medicamentoContinuo = 'Informe o medicamento.';
+  if (f.temCondicao && !f.condicaoSaude.trim()) erros.condicaoSaude = 'Descreva a condição.';
   return erros;
 }
 
@@ -45,7 +50,7 @@ function validar(f: Formulario): Erros {
 function paraRequisicao(f: Formulario): UsuarioRequest {
   return {
     nome: f.nome.trim(),
-    idade: Number(f.idade),
+    idade: f.idade === '' ? null : Number(f.idade),
     telefone: f.telefone,
     responsaveis: f.responsaveis,
     telefoneResponsavel: f.telefoneResponsavel,
@@ -55,6 +60,7 @@ function paraRequisicao(f: Formulario): UsuarioRequest {
     restricaoAlimentar: f.temRestricao ? f.restricaoAlimentar : '',
     alergia: f.temAlergia ? f.alergia : '',
     medicamentoContinuo: f.usaMedicamento ? f.medicamentoContinuo : '',
+    condicaoSaude: f.temCondicao ? f.condicaoSaude : '',
   };
 }
 
@@ -102,7 +108,7 @@ export function RegistroCheckin() {
       <form onSubmit={enviar} noValidate>
         <div className={s.grade}>
           <Campo className={s.nome} rotulo="Nome" autoComplete="off" {...texto('nome')} />
-          <Campo className={s.idade} rotulo="Idade" type="number" min={0} max={120} inputMode="numeric" {...texto('idade')} />
+          <Campo className={s.idade} rotulo="Idade" placeholder="Líder: vazio" type="number" min={0} max={120} inputMode="numeric" {...texto('idade')} />
           <Campo className={s.telefone} rotulo="Telefone" type="tel" {...texto('telefone')} />
           <Campo className={s.responsaveis} rotulo="Responsáveis" {...texto('responsaveis')} />
           <Campo className={s.telResponsavel} rotulo="Telefone do responsável" type="tel" {...texto('telefoneResponsavel')} />
@@ -128,6 +134,11 @@ export function RegistroCheckin() {
           <div className={s.pergunta}>
             <SimNao rotulo="Uso contínuo de medicamento?" valor={form.usaMedicamento} onChange={(v) => definir('usaMedicamento', v)} />
             {form.usaMedicamento && <Campo rotulo="Qual?" {...texto('medicamentoContinuo')} />}
+          </div>
+          <div className={s.pergunta}>
+            <SimNao rotulo="Condição de saúde que a liderança precisa conhecer?" valor={form.temCondicao}
+                    onChange={(v) => definir('temCondicao', v)} />
+            {form.temCondicao && <Campo rotulo="Qual?" {...texto('condicaoSaude')} />}
           </div>
         </div>
 

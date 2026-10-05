@@ -5,13 +5,14 @@ import type { Usuario } from '../../api/types';
 import { Aviso, Botao, CampoBusca, Chip, Estado, ListaChips, Tabela, type Coluna } from '../../components/ui';
 import { useCarregamento } from '../../hooks/useCarregamento';
 import { useDebounce } from '../../hooks/useDebounce';
-import { formatarDataHora } from '../../utils/formatacao';
+import { formatarDataHora, formatarTelefone } from '../../utils/formatacao';
 
 function Saude({ u }: { u: Usuario }) {
   const itens = [
     u.restricaoAlimentar && <Chip key="r" cor="amarelo">Restrição: {u.restricaoAlimentar}</Chip>,
     u.alergia && <Chip key="a" cor="vermelho">Alergia: {u.alergia}</Chip>,
     u.medicamentoContinuo && <Chip key="m" cor="azul">Medicamento: {u.medicamentoContinuo}</Chip>,
+    u.condicaoSaude && <Chip key="c" cor="vermelho">Saúde: {u.condicaoSaude}</Chip>,
   ].filter(Boolean);
   return itens.length ? <ListaChips>{itens}</ListaChips> : <span>—</span>;
 }
@@ -33,10 +34,10 @@ export function Participantes() {
 
   const colunas: Coluna<Usuario>[] = [
     { titulo: 'Nº', celula: (u) => u.id, numerica: true },
-    { titulo: 'Nome', celula: (u) => <strong>{u.nome}</strong> },
-    { titulo: 'Idade', celula: (u) => u.idade, numerica: true },
+    { titulo: 'Nome', celula: (u) => <strong>{u.nome}</strong>, semQuebra: true },
+    { titulo: 'Idade', celula: (u) => u.idade ?? '—', numerica: true },
     { titulo: 'Responsáveis', celula: (u) => u.responsaveis ?? '—' },
-    { titulo: 'Contato', celula: (u) => u.telefoneResponsavel ?? u.telefone ?? '—' },
+    { titulo: 'Contato', celula: (u) => formatarTelefone(u.telefoneResponsavel ?? u.telefone), semQuebra: true },
     { titulo: 'Igreja / Gap', celula: (u) => (
       <ListaChips>
         {u.frequentaIgreja && <Chip cor="verde">{u.igreja ?? 'Igreja'}</Chip>}

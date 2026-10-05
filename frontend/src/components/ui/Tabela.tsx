@@ -5,6 +5,12 @@ export interface Coluna<T> {
   titulo: string;
   celula: (linha: T) => ReactNode;
   numerica?: boolean;
+  /** Mantém o conteúdo em uma linha (nomes, telefones, datas). */
+  semQuebra?: boolean;
+}
+
+function classeDa<T>(c: Coluna<T>) {
+  return [c.numerica && s.numero, c.semQuebra && s.semQuebra].filter(Boolean).join(' ') || undefined;
 }
 
 export function Tabela<T>({ colunas, linhas, chave, vazio = 'Nenhum registro.' }: {
@@ -19,7 +25,7 @@ export function Tabela<T>({ colunas, linhas, chave, vazio = 'Nenhum registro.' }
         <thead>
           <tr>
             {colunas.map((c) => (
-              <th key={c.titulo} className={c.numerica ? s.numero : undefined}>{c.titulo}</th>
+              <th key={c.titulo} className={classeDa(c)}>{c.titulo}</th>
             ))}
           </tr>
         </thead>
@@ -30,7 +36,7 @@ export function Tabela<T>({ colunas, linhas, chave, vazio = 'Nenhum registro.' }
             linhas.map((l) => (
               <tr key={chave(l)}>
                 {colunas.map((c) => (
-                  <td key={c.titulo} className={c.numerica ? s.numero : undefined}>{c.celula(l)}</td>
+                  <td key={c.titulo} className={classeDa(c)}>{c.celula(l)}</td>
                 ))}
               </tr>
             ))

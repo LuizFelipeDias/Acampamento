@@ -11,9 +11,9 @@ const corMetodo: Record<MetodoPagamento, CorChip> = {
 };
 
 const colunas: Coluna<Pedido>[] = [
-  { titulo: 'Data', celula: (p) => formatarDataHora(p.dataHora) },
+  { titulo: 'Data', celula: (p) => formatarDataHora(p.dataHora), semQuebra: true },
   { titulo: 'Pedido', celula: (p) => `#${p.id}`, numerica: true },
-  { titulo: 'Participante', celula: (p) => <strong>{p.usuarioNome}</strong> },
+  { titulo: 'Participante', celula: (p) => <strong>{p.usuarioNome}</strong>, semQuebra: true },
   { titulo: 'Itens', celula: (p) => (
     <ListaChips>{p.itens.map((i) => <Chip key={i.produtoId}>{i.quantidade} × {i.produtoNome}</Chip>)}</ListaChips>
   ) },

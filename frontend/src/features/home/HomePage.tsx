@@ -39,8 +39,8 @@ export function HomePage() {
       </Estado>
       <h2 className={s.secao}>Ações rápidas</h2>
       <div className={s.atalhos}>
-        <Link to="/checkin" className={s.atalho}><IconeCheckin width={32} height={32} />Novo check-in</Link>
-        <Link to="/cantina" className={s.atalho}><IconeSacola width={32} height={32} />Nova venda</Link>
+        <Link to="/checkin" className={s.atalho}><IconeCheckin />Novo check-in</Link>
+        <Link to="/cantina" className={s.atalho}><IconeSacola />Nova venda</Link>
       </div>
     </>
   );

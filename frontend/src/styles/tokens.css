@@ -21,7 +21,10 @@
   --fonte-nav: 'Oswald', 'Arial Narrow', sans-serif;
   --fonte-texto: 'Inter', system-ui, sans-serif;
 
+  /* Escala: um único lugar para deixar a interface maior ou menor. */
+  --fonte-base: 14px;
+  --altura-controle: 40px;
   --raio: 6px;
-  --borda-forte: 3px solid var(--tinta);
-  --sidebar-largura: 280px;
+  --borda-forte: 2px solid var(--tinta);
+  --sidebar-largura: 216px;
 }

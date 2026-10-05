@@ -20,12 +20,13 @@ export interface UsuarioRequest {
   restricaoAlimentar: string;
   alergia: string;
   medicamentoContinuo: string;
+  condicaoSaude: string;
 }
 
 export interface Usuario {
   id: number;
   nome: string;
-  idade: number;
+  idade: number | null;
   telefone: string | null;
   responsaveis: string | null;
   telefoneResponsavel: string | null;
@@ -35,6 +36,7 @@ export interface Usuario {
   restricaoAlimentar: string | null;
   alergia: string | null;
   medicamentoContinuo: string | null;
+  condicaoSaude: string | null;
   criadoEm: string;
 }
 

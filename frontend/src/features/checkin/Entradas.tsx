@@ -5,7 +5,7 @@ import { useCarregamento } from '../../hooks/useCarregamento';
 import { formatarDataHora } from '../../utils/formatacao';
 
 const colunas: Coluna<Checkin>[] = [
-  { titulo: 'Data e hora', celula: (c) => formatarDataHora(c.dataHora) },
+  { titulo: 'Data e hora', celula: (c) => formatarDataHora(c.dataHora), semQuebra: true },
   { titulo: 'Nº', celula: (c) => c.usuarioId, numerica: true },
   { titulo: 'Participante', celula: (c) => c.usuarioNome },
 ];

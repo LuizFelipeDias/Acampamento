@@ -1,5 +1,7 @@
 package br.org.gap.acampamento.web;
 
+import br.org.gap.acampamento.dto.ImportacaoRequest;
+import br.org.gap.acampamento.dto.ImportacaoResponse;
 import br.org.gap.acampamento.dto.UsuarioRequest;
 import br.org.gap.acampamento.dto.UsuarioResponse;
 import br.org.gap.acampamento.service.UsuarioService;
@@ -31,5 +33,11 @@ public class UsuarioController {
     @PutMapping("/{id}")
     public UsuarioResponse atualizar(@PathVariable Long id, @Valid @RequestBody UsuarioRequest req) {
         return service.atualizar(id, req);
+    }
+
+    /** Cadastro em lote (inscrições do formulário). Não registra entrada: isso é feito na chegada. */
+    @PostMapping("/importacao")
+    public ImportacaoResponse importar(@Valid @RequestBody ImportacaoRequest req) {
+        return service.importar(req);
     }
 }

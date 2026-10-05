@@ -46,3 +46,17 @@ GET {{api}}/pedidos
 
 ### Histórico de check-ins
 GET {{api}}/checkins
+
+### Importar inscrições em lote (idempotente por nome)
+POST {{api}}/usuarios/importacao
+Content-Type: application/json
+
+{
+  "participantes": [
+    {
+      "inscritoEm": "2026-09-21T12:42:37-03:00",
+      "participante": { "nome": "Fulano de Tal", "idade": null, "frequentaIgreja": true, "igreja": "PIPPG",
+                        "frequentaGap": true, "condicaoSaude": "Asma" }
+    }
+  ]
+}

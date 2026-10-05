@@ -1,7 +1,7 @@
 .grade {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 20px 24px;
+  gap: 14px 16px;
 }
 .nome { grid-column: span 6; }
 .idade { grid-column: span 2; }
@@ -11,21 +11,21 @@
 
 .secao {
   grid-column: 1 / -1;
-  margin: 16px 0 0;
+  margin: 8px 0 0;
   font-family: var(--fonte-nav);
   font-weight: 400;
-  font-size: 22px;
+  font-size: 17px;
   letter-spacing: 0.04em;
   color: var(--azul);
   border-top: 2px solid var(--borda-suave);
-  padding-top: 20px;
+  padding-top: 14px;
 }
 
 .pergunta {
   grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: 260px 1fr;
-  gap: 24px;
+  grid-template-columns: 220px 1fr;
+  gap: 16px;
   align-items: end;
 }
 
