@@ -9,5 +9,7 @@ frontend/dist/
 # Dados pessoais dos participantes (inscrições): nunca versionar — o repositório é público.
 dados-privados/
 
-# Configurações locais do editor
-.vscode/
+
+# Configurações do editor: só as do projeto são versionadas
+.vscode/*
+!.vscode/settings.json
