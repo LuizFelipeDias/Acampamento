@@ -10,6 +10,8 @@ export default defineConfig(({ mode }) => {
     server: {
       host: true,
       port: 5173,
+      // Libera o endereço público do Codespaces (o Vite bloqueia hosts desconhecidos).
+      allowedHosts: ['.app.github.dev'],
       proxy: {
         '/api': { target: env.API_PROXY_TARGET || 'http://localhost:8080', changeOrigin: true },
       },
