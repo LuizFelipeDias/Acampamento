@@ -21,16 +21,16 @@ public class UsuarioService {
         this.usuarios = usuarios;
     }
 
-    /** Busca por número (id) quando o termo é numérico; senão, por trecho do nome. */
+    /** Busca por número (id) quando o termo é numérico; senão, por trecho do nome. Sempre em ordem de número. */
     public List<UsuarioResponse> buscar(String termo) {
         if (termo == null || termo.isBlank()) {
-            return usuarios.findAllByOrderByNomeAsc().stream().map(UsuarioResponse::from).toList();
+            return usuarios.findAllByOrderByIdAsc().stream().map(UsuarioResponse::from).toList();
         }
         String t = termo.trim();
         if (t.chars().allMatch(Character::isDigit)) {
             return usuarios.findById(Long.valueOf(t)).map(UsuarioResponse::from).stream().toList();
         }
-        return usuarios.findByNomeContainingIgnoreCaseOrderByNomeAsc(t).stream()
+        return usuarios.findByNomeContainingIgnoreCaseOrderByIdAsc(t).stream()
                 .map(UsuarioResponse::from).toList();
     }
 

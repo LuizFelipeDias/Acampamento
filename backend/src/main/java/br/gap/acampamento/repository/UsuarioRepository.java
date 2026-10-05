@@ -6,9 +6,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
-    List<Usuario> findByNomeContainingIgnoreCaseOrderByNomeAsc(String nome);
+    List<Usuario> findByNomeContainingIgnoreCaseOrderByIdAsc(String nome);
 
-    List<Usuario> findAllByOrderByNomeAsc();
+    List<Usuario> findAllByOrderByIdAsc();
 
     boolean existsByNomeIgnoreCase(String nome);
 }
