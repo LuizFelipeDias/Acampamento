@@ -9,7 +9,7 @@
     <version>3.5.6</version>
     <relativePath/>
   </parent>
-  <groupId>br.org.gap</groupId>
+  <groupId>br.gap</groupId>
   <artifactId>acampamento-api</artifactId>
   <version>0.1.0</version>
   <properties>
